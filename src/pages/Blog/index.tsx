@@ -1,8 +1,10 @@
+import { Profile } from './components/Profile'
 import { BlogContainer } from './styles'
 
 export function Blog() {
   return (
     <BlogContainer>
+      <Profile />
       <p>blog</p>
     </BlogContainer>
   )
