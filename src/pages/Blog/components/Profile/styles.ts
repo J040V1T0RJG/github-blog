@@ -46,6 +46,12 @@ export const ProfileInfo = styled.div`
       color: ${(props) => props.theme.blue};
       word-spacing: 0.5rem;
       cursor: pointer;
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        border-bottom: 1px solid ${(props) => props.theme.blue};
+        transition: border-color 0.2s;
+      }
     }
   }
 
