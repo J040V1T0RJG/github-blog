@@ -23,6 +23,7 @@ export const Avatar = styled.img`
 `
 
 export const ProfileInfo = styled.div`
+  width: 100%;
   header {
     display: flex;
     justify-content: space-between;
@@ -36,12 +37,13 @@ export const ProfileInfo = styled.div`
       color: ${(props) => props.theme['base-title']};
     }
 
-    p {
+    a {
       font-weight: 700;
       font-size: 0.75rem;
       line-height: 160%;
 
       text-transform: uppercase;
+      text-decoration: none;
 
       color: ${(props) => props.theme.blue};
       word-spacing: 0.5rem;

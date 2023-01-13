@@ -5,40 +5,52 @@ import {
   faBuilding,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState } from 'react'
 
 import { Avatar, Footer, ProfileContainer, ProfileInfo } from './styles'
+import { api } from '../../../../libs/axios'
 
 export function Profile() {
+  const [gitHubProfileData, setGitHubProfileData] = useState<any>({})
+
+  useEffect(() => {
+    async function featchData() {
+      const response = await api.get('/users/J040V1T0RJG')
+      setGitHubProfileData(response.data)
+    }
+
+    featchData()
+  }, [])
+
+  console.log(gitHubProfileData)
   return (
     <ProfileContainer>
-      <Avatar
-        src="https://img.elo7.com.br/product/zoom/3EECB71/desenho-personalizado-para-usar-de-foto-de-perfil-e-etc-personalizado.jpg"
-        alt=""
-      />
+      <Avatar src={gitHubProfileData.avatar_url} alt="avatar image" />
       <ProfileInfo>
         <header>
-          <h1>Cameron Williamson</h1>
-          <p>
+          <h1>{gitHubProfileData.name}</h1>
+          <a href={gitHubProfileData.html_url} target="_blank" rel="noreferrer">
             GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} />{' '}
-          </p>
+          </a>
         </header>
-        <h2>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
-        </h2>
+        <h2>{gitHubProfileData.bio}</h2>
         <Footer>
           <div className="icon">
             <FontAwesomeIcon icon={faGithub} />
-            <p>cameronwll</p>
+            <p>{gitHubProfileData.login}</p>
           </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faBuilding} />
-            <p>cameronwll</p>
-          </div>
+          {gitHubProfileData.company && (
+            <div className="icon">
+              <FontAwesomeIcon icon={faBuilding} />
+              <p>{gitHubProfileData.company}</p>
+            </div>
+          )}
           <div className="icon">
             <FontAwesomeIcon icon={faUserGroup} />
-            <p>cameronwll</p>
+            <p>
+              {gitHubProfileData.followers}{' '}
+              {gitHubProfileData.followers > 1 ? 'seguidores' : 'seguidor'}
+            </p>
           </div>
         </Footer>
       </ProfileInfo>
