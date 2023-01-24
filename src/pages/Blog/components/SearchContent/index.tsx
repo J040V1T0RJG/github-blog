@@ -24,11 +24,14 @@ export function SearchContent() {
     reset()
   }
 
-  const numberOfPublications = posts.items
-    ? posts.items.length > 1
-      ? posts.items.length + ' publicações'
-      : posts.items.length + ' publicação'
-    : '0 publicação'
+  let numberOfPublications = '0 publicação'
+  if (posts.items) {
+    if (posts.items.length > 1) {
+      numberOfPublications = posts.items.length + ' publicações'
+    } else {
+      numberOfPublications = posts.items.length + ' publicação'
+    }
+  }
 
   return (
     <SearchContentContainer onSubmit={handleSubmit(handleSearchPosts)}>
