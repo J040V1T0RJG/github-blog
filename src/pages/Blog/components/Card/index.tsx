@@ -26,9 +26,7 @@ export function Card(props: ItemsGitHubAPIRequest) {
           })}
         </h3>
       </header>
-      <p>
-        <ReactMarkdown>{textShortener(`${body}`)}</ReactMarkdown>
-      </p>
+      <ReactMarkdown>{textShortener(`${body}`)}</ReactMarkdown>
     </CardContainer>
   )
 }

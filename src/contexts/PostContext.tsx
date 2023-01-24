@@ -25,13 +25,15 @@ export function PostProvider({ children }: PostProviderProps) {
   const fetchPosts = useCallback(async (query?: string) => {
     query = query || ''
 
-    const response = await api.get('/search/issues', {
-      params: {
-        q: `${query}repo:J040V1T0RJG/github-blog`,
-        _sort: 'updated_at',
-        _order: 'desc',
+    const response = await api.get(
+      `/search/issues?q=${query}type:issue+repo:J040V1T0RJG/github-blog`,
+      {
+        params: {
+          _sort: 'updated_at',
+          _order: 'desc',
+        },
       },
-    })
+    )
     setPosts(response.data)
   }, [])
 
