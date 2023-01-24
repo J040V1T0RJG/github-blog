@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+
 import { PostContext } from '../../contexts/PostContext'
 import { Card } from './components/Card'
 import { Profile } from './components/Profile'

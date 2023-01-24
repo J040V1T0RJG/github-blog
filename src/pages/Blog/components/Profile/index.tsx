@@ -18,7 +18,6 @@ export function Profile() {
       const response = await api.get('/users/J040V1T0RJG')
       setGitHubProfileData(response.data)
     }
-
     featchData()
   }, [])
 
