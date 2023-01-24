@@ -5,9 +5,9 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  background: ${(props) => props.theme.profile};
+  background: ${(props) => props.theme['base-profile']};
 
-  width: 100vw;
+  width: 100%;
   height: 18.5rem;
 
   > :nth-child(2) {
