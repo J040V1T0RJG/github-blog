@@ -22,7 +22,6 @@ export function Profile() {
     featchData()
   }, [])
 
-  console.log(gitHubProfileData)
   return (
     <ProfileContainer>
       <Avatar src={gitHubProfileData.avatar_url} alt="avatar image" />

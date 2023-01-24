@@ -1,12 +1,22 @@
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
+import { ItemsGitHubAPIRequest } from '../../../../contexts/typingPosts'
 import { textShortener } from '../../../../utils/formatter'
 import { CardContainer } from './styles'
 
-export function Card() {
+export function Card(props: ItemsGitHubAPIRequest) {
+  const { title, updated_at } = props
+
   return (
     <CardContainer>
       <header>
-        <h2>JavaScript data types and data structures</h2>
-        <h3>Há 1 dia</h3>
+        <h2>{title}</h2>
+        <h3>
+          {formatDistanceToNow(new Date(updated_at), {
+            addSuffix: true,
+            locale: ptBR,
+          })}
+        </h3>
       </header>
       <p>
         {textShortener(`        

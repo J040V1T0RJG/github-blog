@@ -19,6 +19,8 @@ export const CardContainer = styled.div`
       font-weight: 700;
       font-size: 1.25rem;
       line-height: 160%;
+      min-width: 80%;
+      cursor: pointer;
 
       color: ${(props) => props.theme['base-title']};
     }
@@ -29,7 +31,7 @@ export const CardContainer = styled.div`
       line-height: 160%;
 
       color: ${(props) => props.theme['base-span']};
-      min-width: max-content;
+      min-width: 20%;
     }
   }
 
